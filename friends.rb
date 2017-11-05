@@ -54,27 +54,25 @@ def favourite_foods(people_array)
   return foods_array
 end
 
-def find_no_friends(people_array)
+def no_friends(people_array)
   no_friends_array = []
   for person in people_array
-    if person[:friends]== 0
-    return no_friends_array.push(person)
+    if person[:friends] == []
+     no_friends_array.push(person[:name])
     end
   end
   return no_friends_array
 end
 
+
 def same_tv_show(people)
   tv_shows = {}
-  result = {}
-
   for person in people
-    show = person[:favourites][:tv_show]
-
-    if tv_shows[show]
-      tv_shows[:show].push(person[:name])
+    if tv_shows[person[:favourites][:tv_show]] == nil
+      tv_shows[person[:favourites][:tv_show]] = [person[:name]]
     else
-      tv_shows[show] = [person[:name]]
+      tv_shows[person[:favourites][:tv_show]].push(person[:name])
     end
-
+    return tv_shows[person[:favourites][:tv_show]] if (tv_shows[person[:favourites][:tv_show]].length > 1)
   end
+end

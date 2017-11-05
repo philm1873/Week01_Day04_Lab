@@ -1,5 +1,5 @@
 require( 'minitest/autorun' )
-require_relative( '../friends' )
+require_relative( 'friends' )
 
 class TestFriends < MiniTest::Test
 
@@ -64,7 +64,7 @@ class TestFriends < MiniTest::Test
 
   end
 
-  # 1. For a given person, return their name
+  #1. For a given person, return their name
   def test_getting_name
     result = get_name(@person5)
     assert_equal("Dave", result)
@@ -132,5 +132,8 @@ end
 
   # Optional, VERY TOUGH
   # 10. Find the people who have the same favourite tv show
-
+  def test_same_tv_show
+    result = same_tv_show(@people)
+    assert_equal(["Val", "Keith"], result)
+  end
 end
